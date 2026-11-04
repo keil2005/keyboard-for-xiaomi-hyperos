@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FoldDeck</string>
+    <string name="accessibility_label">FoldDeck 输入通道</string>
+    <string name="accessibility_description">允许 FoldDeck 将键盘输入写入上半屏应用，并模拟鼠标点击/滚动/拖拽。这是「半屏键盘」的核心通道，必须开启。</string>
+    <string name="ime_label">FoldDeck 隐形输入法</string>
+</resources>

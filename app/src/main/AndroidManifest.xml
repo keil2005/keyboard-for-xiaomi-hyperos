@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.foldkb.deck">
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- 遥控测试通道：am instrument 注入点击/滑动（绕过 shell INJECT_EVENTS 限制） -->
+    <instrumentation
+        android:name=".DeckInstrumentation"
+        android:targetPackage="com.foldkb.deck"
+        android:label="FoldDeck Remote Instrument" />
+
+    <application
+        android:label="FoldDeck"
+        android:allowBackup="false"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".DeckActivity"
+            android:exported="true"
+            android:label="FoldDeck 键盘"
+            android:launchMode="singleTask"
+            android:resizeableActivity="true"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:label="FoldDeck 设置"
+            android:resizeableActivity="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 键盘设置页：声音 / 震动 / 主题 / 背光 -->
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:label="FoldDeck 键盘设置"
+            android:resizeableActivity="true" />
+
+        <!-- 常驻悬浮键盘面板 -->
+        <service
+            android:name=".DeckService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="resident half-screen keyboard and trackpad panel for foldable devices" />
+        </service>
+
+        <!-- 无障碍：文字写入 + 鼠标手势注入 -->
+        <service
+            android:name=".DeckAccessibilityService"
+            android:exported="false"
+            android:label="FoldDeck 输入通道"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_config" />
+        </service>
+
+        <!-- 隐形输入法：屏蔽系统键盘弹出 -->
+        <service
+            android:name=".GhostImeService"
+            android:exported="true"
+            android:label="FoldDeck 隐形输入法"
+            android:permission="android.permission.BIND_INPUT_METHOD">
+            <intent-filter>
+                <action android:name="android.view.InputMethod" />
+            </intent-filter>
+            <meta-data
+                android:name="android.view.im"
+                android:resource="@xml/method" />
+        </service>
+
+        <!-- 远程重启面板（避免 force-stop 杀无障碍） -->
+        <receiver
+            android:name=".PanelReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.foldkb.deck.ACTION_PANEL" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+</manifest>

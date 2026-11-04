@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 深色键盘面 -->
+    <color name="deck_bg">#2B2B2E</color>
+    <color name="key_bg">#46464B</color>
+    <color name="key_bg_pressed">#6A6A70</color>
+    <color name="key_bg_special">#37373B</color>
+    <color name="key_text">#F2F2F5</color>
+    <color name="key_text_dim">#9A9AA0</color>
+    <!-- 浅色触控板 -->
+    <color name="trackpad_bg">#E8E6E1</color>
+    <color name="trackpad_border">#C9C6BF</color>
+    <!-- 状态条 -->
+    <color name="status_bg">#1E1E20</color>
+    <color name="status_ok">#4CAF50</color>
+    <color name="status_off">#E5534B</color>
+    <color name="status_text">#DEDEE2</color>
+    <!-- 主界面 -->
+    <color name="window_bg">#121214</color>
+    <color name="accent">#5B8DEF</color>
+</resources>

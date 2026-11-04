@@ -1,0 +1,16 @@
+# 构建产物
+/build/
+*.apk
+*.apk.idsig
+
+# 签名密钥（不要提交）
+debug.keystore
+
+# 系统/编辑器
+.DS_Store
+*.iml
+.idea/
+
+# 本地工具缓存
+__pycache__/
+*.pyc
