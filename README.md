@@ -2,6 +2,20 @@
 
 小米 18 Fold 半折（笔记本形态）下：**上半屏 = 微信等应用，下半屏 = 常驻 MacBook 风格键盘 + 触控板**。
 
+## 界面预览
+
+半折（笔记本形态）下，上半屏微信、下半屏 MacBook 键盘 + 触控板：
+
+<p align="center">
+  <img src="docs/screenshots/split-view-wechat.jpg" width="360" alt="分屏效果：上半屏微信 + 下半屏键盘触控板" />
+</p>
+
+**中文拼音输入** —— 流水屏实时显示拼音候选，点选上屏：
+
+<p align="center">
+  <img src="docs/screenshots/pinyin-input.jpg" width="360" alt="中文拼音输入：流水屏显示拼音候选" />
+</p>
+
 ## 功能特性
 
 - **MacBook 风格键盘**：数字行 + QWERTY + 修饰键（Ctrl/⌥/⌘）+ 方向键，主题化键帽 + 背光效果。
@@ -13,6 +27,14 @@
 - **鼠标开关**：左下角 🖱 按钮一键开关，关闭时同步隐藏悬浮指针。
 - **设置页**：按键声音（3 种音色）/ 震动 / 主题色（5 套）/ 背光效果（呼吸/扫描/按键亮）。
 - **背光动画**：呼吸、扫描光带、按键渐灭三种模式。
+
+**个性化设置** —— 主题色 / 按键背光 / 按键声音：
+
+<p align="center">
+  <img src="docs/screenshots/settings-theme.jpg" width="260" alt="主题色设置" />
+  <img src="docs/screenshots/settings-backlight.jpg" width="260" alt="按键背光设置" />
+  <img src="docs/screenshots/settings-sound.jpg" width="260" alt="按键声音设置" />
+</p>
 
 ## 架构
 
